@@ -1,0 +1,107 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.dropbtn {
+  background-color: #f9f9f9;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #666666;
+}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  background-color: #f9f9f9;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: #666666;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar-right {
+  float: right !important;
+  margin-right: 50px;
+}
+
+.view-port {
+  margin-top: 7vh;
+  height: 93vh;
+}
+
+.form-center {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj5Xa2hzWkMTN435PJrDNRyGDYaq0klD8rku7-uP7y7eihn0yU');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-top: 10vh;
+  padding: 20px 10px 2vh;
+  filter: blur(.3);
+  border-radius: 10px;
+  box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
+}
+
+.btn-form {
+  width: 100%;
+  margin: 20px 0;
+  padding: 15px 0;
+}
+
+#error_explanation {
+  h2 {
+    color: red;
+    font-size: 1em;
+  }
+}
+
+.notice {
+  opacity: 0;
+  padding: 10px 20px;
+  width: 19.5%;
+  background: white;
+  position: fixed;
+  bottom: 17%;
+  left: 7%;
+  border-radius: 5px;
+  animation: fadeInOut 5s ease 1s forwards;
+  z-index: 9999;
+  box-shadow: 2px 6px 11px rgba(34, 34, 34, 0.68);
+}
+
+@keyframes fadeInOut {
+  from, to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  30%, 50%, 70% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInOut {
+  -webkit-animation-name: fadeInOut;
+  animation-name: fadeInOut;
+}

@@ -1,0 +1,19 @@
+<div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="dropbtn"><%= t "navbar.account" %></button>
+        <div class="dropdown-content">
+          <li><%= link_to t(".setting"), "#" %></li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>
+          </li>
+        </div>
+      </div>
+    <% else %>
+      <li><%= link_to t("navbar.login"), new_user_session_path %></li>
+      <li id="signup"><%= link_to t("navbar.signup"), new_user_registration_path %></li>
+    <% end %>
+  </ul>
+</div>
