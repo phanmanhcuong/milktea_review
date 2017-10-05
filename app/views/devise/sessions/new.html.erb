@@ -8,7 +8,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password %>
+          <%= f.label :password %> <%= link_to "Forgot your password?", new_password_path(resource_name) %>
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         </div>
 
