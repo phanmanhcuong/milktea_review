@@ -4,7 +4,7 @@
       <div class="dropdown">
         <button class="dropbtn"><%= t "navbar.account" %></button>
         <div class="dropdown-content">
-          <li><%= link_to t(".setting"), "#" %></li>
+          <li><%= link_to t(".setting"), edit_user_registration_path %></li>
           <li class="divider"></li>
           <li>
             <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>
