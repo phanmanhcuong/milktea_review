@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  font-family: Oswald;
+  font-weight: lighter;
+}
+
 .dropbtn {
   background-color: #f9f9f9;
   font-size: 12px;
@@ -50,11 +55,7 @@
 }
 
 .form-center {
-  // background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj5Xa2hzWkMTN435PJrDNRyGDYaq0klD8rku7-uP7y7eihn0yU');
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-position: center center;
-  background: linear-gradient(to right, #e0eafc, #cfdef3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
   margin-top: 10vh;
   padding: 20px 10px 2vh;
   filter: blur(.3);
@@ -68,10 +69,10 @@
   padding: 15px 0;
   border: 0;
   box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
-  background: linear-gradient(to right, #4ca1af, #c6e0e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #4ca1af, #c6e0e5);
   
   &:hover {
-      background: linear-gradient(to right, #2980b9, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #2980b9, #2c3e50);
   }
 }
 
@@ -108,7 +109,74 @@
     transform: none;
   }
 }
+
 .fadeInOut {
   -webkit-animation-name: fadeInOut;
   animation-name: fadeInOut;
+}
+
+.navbar-brand {
+  font-size: 2em;
+  font-family: Allan;
+  text-transform: none;
+}
+
+.navbar-default {
+  text-transform: uppercase;
+  box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
+}
+
+@keyframes fadeBlur {
+  from, to {
+    transition: .5s;
+    filter: blur(5px);
+  }
+  20%, 50%, 80% {
+    transition: .5s;
+    filter: blur(0);
+  }
+}
+
+.fadeBlur {
+  animation-name: fadeBlur;
+}
+
+.main-content {
+  height: 93vh;
+}
+
+.search-bar {
+  height: 10vh;
+  background: white;
+  box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
+}
+
+.main-content-item1 {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  height: 280px;
+  background: url("https://media.foody.vn/res/g69/688272/s180x180/foody-royaltea-tran-dang-ninh-304-636421318206025687.jpg");
+}
+
+.main-content-item3 {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  height: 280px;
+  background: url("https://media.foody.vn/res/g69/688272/s180x180/foody-royaltea-tran-dang-ninh-872-636421318257279685.jpg");
+}
+
+.main-content-item2 {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  height: 280px;
+  background: url("https://media.foody.vn/res/g69/681411/s180x180/foody-tra-sua-gong-cha-hang-cot-815-636390259921289304.jpg");
+}
+
+.footer {
+  box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
+  background: gray;
+  height: 200px;
 }

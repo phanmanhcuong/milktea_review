@@ -1,0 +1,88 @@
+<div class="slider-home" data-slide1="https://tea-4.lozi.vn/v1/images/resized/tra-sua-1-3930256-1506652963?w=480&type=s"
+  data-slide2="https://media.foody.vn/res/g70/690046/prof/s576x330/foody-mobile-21151718_25803249804-849-636416680003261766.jpg"
+  data-slide3="https://media.foody.vn/res/g69/688272/prof/s576x330/foody-mobile-20156079_79092418769-952-636409154717028763.jpg"
+  data-current="1">
+</div>
+
+<div class="search-bar">
+  Search
+</div>
+
+<div class="container">
+  <div class="main-content">
+    <div class="row">
+      <div class="col-sm-3 main-side-menu">
+        Menu side
+      </div>
+
+      <div class="col-sm-9 main-side-content">
+        <div class="col-sm-4 main-content-item1">
+
+        </div>
+
+        <div class="col-sm-4 main-content-item2">
+
+        </div>
+
+        <div class="col-sm-4 main-content-item3">
+
+        </div>
+
+        <div class="col-sm-4 main-content-item2">
+
+        </div>
+
+        <div class="col-sm-4 main-content-item1">
+
+        </div>
+
+        <div class="col-sm-4 main-content-item3">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+
+</div>
+
+<style>
+  .slider-home {
+    height: 93vh;
+    transition: .5s;
+    animation: fadeBlur 7.2s infinite;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+</style>
+<script type="text/javascript" charset="utf-8">
+  var slide1 = 'url('+$('.slider-home').attr('data-slide1')+')';
+  var slide2 = 'url('+$('.slider-home').attr('data-slide2')+')';
+  var slide3 = 'url('+$('.slider-home').attr('data-slide3')+')';
+
+  function loopSlider(counter) {
+    var slide;
+    switch(counter%3) {
+      case 0:
+        slide = slide1;
+        break;
+      case 1:
+        slide = slide2;
+        break;
+      case 2:
+        slide = slide3;
+        break;
+      default:
+        slide = slide1;
+        break;
+    }
+    counter++;
+    $('.slider-home').fadeOut(800).css('background', slide).fadeIn(1100);
+    setTimeout(function(){loopSlider(counter)}, 7000);
+  }
+
+  loopSlider(0)
+</script>
