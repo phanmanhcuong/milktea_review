@@ -9,6 +9,10 @@
           <li>
             <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>
           </li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to t(".My Profile"), user_path(current_user) %> 
+          </li>
         </div>
       </div>
     <% else %>
