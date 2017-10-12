@@ -12,6 +12,11 @@ gem "devise"
 gem 'carrierwave'
 gem 'mini_magick'
 gem "bootstrap-sass"
+gem 'therubyracer'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-digitalocean'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
