@@ -1,3 +1,5 @@
 class StaticPagesController < ApplicationController
-  def show; end
+  def show
+    @reviews = Review.all
+  end
 end

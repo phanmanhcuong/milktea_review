@@ -5,40 +5,35 @@
 </div>
 
 <div class="search-bar">
-  Search
+  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: rgba(255,82,109,0.75); height: 100%"> Menu</div>
+  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: rgba(253,157,157,0.98); height: 100%">Menu</div>
+  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #e2b994; height: 100%">Menu</div>
+  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #f2ef7f; height: 100%">Menu</div>
+  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #cae79c; height: 100%">Menu</div>
+  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #9ee7ad; height: 100%">Menu</div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="main-content">
     <div class="row">
       <div class="col-sm-3 main-side-menu">
-        Menu side
+        <div style="padding: 15px 10px;color: white; height: 60px; background: #fdc9a7; font-size: 1.2em"> Side menu</div>
+        <div style="padding: 15px 10px;color: white; height: 60px; background: #fdc1a9; font-size: 1.2em"> Side menu</div>
+        <div style="padding: 15px 10px;color: white; height: 60px; background: #fdb0b2; font-size: 1.2em"> Side menu</div>
+        <div style="padding: 15px 10px;color: white; height: 60px; background: #fdb0ef; font-size: 1.2em"> Side menu</div>
+        <div style="padding: 15px 10px;color: white; height: 60px; background: #b8c2fd; font-size: 1.2em"> Side menu</div>
+        <div style="padding: 15px 10px;color: white; height: 60px; background: #d5eefd; font-size: 1.2em"> Side menu</div>
       </div>
 
-      <div class="col-sm-9 main-side-content">
-        <div class="col-sm-4 main-content-item1">
-
-        </div>
-
-        <div class="col-sm-4 main-content-item2">
-
-        </div>
-
-        <div class="col-sm-4 main-content-item3">
-
-        </div>
-
-        <div class="col-sm-4 main-content-item2">
-
-        </div>
-
-        <div class="col-sm-4 main-content-item1">
-
-        </div>
-
-        <div class="col-sm-4 main-content-item3">
-
-        </div>
+      <div class="col-sm-9 main-side-content" style="margin-top: 20px;">
+        <%= @reviews.each do |review| %>
+          <div class="col-sm-4 main-content-item1" style="background-image: url('<%= image_path(review.image.url) %>');
+            background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="" style="font-size: 2em; font-weight: bold;">
+              <%= link_to review.title, review, style: "color: white !important" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -51,7 +46,7 @@
 <style>
   .slider-home {
     height: 93vh;
-    transition: .5s;
+    transition: 1s;
     animation: fadeBlur 7.2s infinite;
     background-size: cover !important;
     background-position: center !important;
@@ -80,7 +75,7 @@
         break;
     }
     counter++;
-    $('.slider-home').fadeOut(800).css('background', slide).fadeIn(1100);
+    $('.slider-home').fadeOut(1200).css('background', slide).fadeIn(1500);
     setTimeout(function(){loopSlider(counter)}, 7000);
   }
 
