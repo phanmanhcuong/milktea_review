@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="form-center col-sm-4 col-sm-offset-4">
+  <div class="form-center col-sm-6 col-sm-offset-3">
     <h2 class="text-center">Create new review </h2>
     <%= form_for :review, url: reviews_path, method: :post do |f| %>
       <div class = "field">
         <%= f.hidden_field :user_id, value: current_user.id %>
       </div>
-
+      <img src="" alt="" id="img_prev" style="width: 100%;">
       <div class = "field">
         <%= f.label :image %>
-        <%= f.file_field :image %>
+        <%= f.file_field :image, onchange: "readURL(this)" %>
       </div>
 
       <div class="field">

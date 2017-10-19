@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new review_params
     if @review.save!
       flash[:success] = t "Success Created"
-      redirect_to review_path
+      redirect_to review_path(@review)
     else
       flash[:danger] = t "Something Wrong"
       redirect_to :back

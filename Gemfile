@@ -17,6 +17,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-digitalocean'
 gem 'omniauth-facebook'
+gem "ransack"
+gem "kaminari"
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

@@ -1,60 +1,75 @@
-<body>
-	<%= form_for current_user do |f| %>
-		<div class="field">
-			<%= f.label :username, 'User name: ' %>
-			<%= current_user.username %>
-		</div>
-		<div class="field">
-			<%= f.label :email, 'Email: ' %> 
-			<%= current_user.email %>
-		</div>
-		<% if (current_user.first_name != nil) %>
-			<div class = "field">
-				<%= f.label :first_name, 'First Name: ' %>
-				<%= current_user.first_name %>
-			</div>
-		<% end %>	
-		<div class = "field">
-				<%= f.label :last_name, 'Last Name: ' %>
-				<% if (current_user.last_name != nil) %>
-					<%= current_user.last_name %>
-				<% else %>
-					<%= " ..." %>
-				<% end %>
-		</div>
-		<div class = "field">
-				<%= f.label :birthday, 'Birth day: ' %>
-				<% if (current_user.birthday != nil) %>
-					<%= current_user.birthday %>
-				<% else %>
-					<%= " ... " %>
-				<% end %>
-		</div>
-		<div class = "field">
-				<%= f.label :address, 'Address: ' %>
-				<% if (current_user.address != nil) %>
-					<%= current_user.address %>
-				<% else %>
-					<%= " ... " %>
-				<% end %>
-		</div>
-		<div class="field">
-			<%= "Avatar: " %>
-			<% if (current_user.avatar != nil) %>
-			<%= image_tag current_user.avatar.url(:thumb) unless current_user.avatar.blank? %>
-			<% end %>
-		</div>
-		<div class="field">
-				<%= link_to "Edit Profile", edit_user_path(current_user) %>
-		</div>
-	<% end %>
-</body>
+<div class="container" style="margin-top: 80px">
+  <div class="col-sm-3">
+    <div class="panel panel-primary">
+      <div class="panel-body avatar-body">
+        <% if @user.avatar == nil %>
+          <div class="avatar">
+          </div>
+        <% else %>
+          <div class="avatar"
+            style="background: url('<%= @user.avatar %>') no-repeat center center;
+              background-size: cover">
+          </div>
+        <% end %>
+        <div class="h2style text-center" style="margin-bottom: 5px;"><%= @user.name.truncate(20) %></div>
+      </div>
+    </div>
+    <% if @user == current_user %>
+      <%= link_to edit_user_registration_path do %>
+        <div class="btn btn-primary" style="width: 100%; padding: 10px 0;
+          border-radius: 2px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        text-transform: uppercase; font-size: 1.2em">
+          Edit
+        </div>
+      <% end %>
+    <% end %>
+    <!--TODO: follow-->
+  </div>
+  <div class="col-sm-9 animated wow fadeInDown" data-wow-delay="0.6s">
+    <div class="panel panel-primary">
+      <div class="panel-body" style="padding-bottom: 1px;">
+        <div class="panel-nav">
+          <div class="text-center user-nav-btn" style="display:inline-block; padding: 0 15px;
+          border-left: 4px solid rgba(255,69,21,0.71)">Info</div>
+        </div>
+        <div class="info nav-content" style="border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
+          <p>Email: <%= @user.email %></p>
+          <p>Address: <%= @user.address %></p>
+          <p>Birthday: <%= @user.birthday %></p>
+          <p>Joined since: <%= @user.created_at.strftime('%d/%m/%Y') %></p>
+        </div>
+        <div class="panel-nav">
+          <div class="text-center user-nav-btn" style="display:inline-block; padding: 0 15px;
+            border-left: 4px solid rgba(28,172,255,0.93)">Review</div>
+        </div>
+        <div class="nav-content">
+          <% @user.review.each do |review| %>
+            <div class="col-sm-4 item-show-img" style="background: url(<%= review.image.url %>);
+              background-size: cover; background-position: center center;
+              background-repeat: no-repeat; background-color: black">
+              <div class="img-overlay">
+                <div class="img-index-item4" title="<%= review.title %>">
+                  <div class="img-title3"><%=h truncate(review.title, :length => 10) %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <style>
-	.field{
-		padding-left: 10px;
-		padding-top: 10px;
-	}
-	body {
-		background-color: lightblue;
-	}
 </style>
+<script type="text/javascript" charset="utf-8">
+  $('.panel-nav').on('click', function() {
+    var a = $(this).next();
+      if(a.hasClass('hiding')) {
+        a.show();
+      } else {
+        a.hide();
+      }
+      a.toggleClass('hiding');
+  });
+</script>

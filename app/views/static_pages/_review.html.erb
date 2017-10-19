@@ -1,0 +1,9 @@
+<% @reviews.each do |review| %>
+  <div class="col-sm-4 main-content-item1" style="background-image: url('<%= image_path(review.image.url) %>');
+    background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="" style="font-size: 2em; font-weight: bold;">
+      <%= link_to review.title, review, style: "color: white !important;
+        background: rgba(136,136,136,0.62)" %>
+    </div>
+  </div>
+<% end %>

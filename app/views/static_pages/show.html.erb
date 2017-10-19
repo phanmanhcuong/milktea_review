@@ -4,13 +4,23 @@
   data-current="1">
 </div>
 
-<div class="search-bar">
-  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: rgba(255,82,109,0.75); height: 100%"> Menu</div>
-  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: rgba(253,157,157,0.98); height: 100%">Menu</div>
-  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #e2b994; height: 100%">Menu</div>
-  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #f2ef7f; height: 100%">Menu</div>
-  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #cae79c; height: 100%">Menu</div>
-  <div class="col-sm-2 text-center" style="padding-top: 15px; font-weight: bold; font-size: 1.5em;background: #9ee7ad; height: 100%">Menu</div>
+<div class="search-bar" style="padding: 15px;">
+  <div class="search-form" style="width: 500px;">
+    <%= search_form_for @q, url: root_path do |f| %>
+      <div class="input-group input-group-lg">
+        <div class="form-group has-feedback has-clear input-group-lg">
+          <%= f.text_field :title_cont, class: "form-control",
+            placeholder: "Search", id: "searchinput" %>
+          <span id="searchclear" class="form-control-clear glyphicon
+            glyphicon-remove-circle form-control-feedback"></span>
+        </div>
+        <span class="input-group-btn">
+          <%= f.submit "Search", class: "btn btn-primary" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
 </div>
 
 <div class="container-fluid">
@@ -26,14 +36,12 @@
       </div>
 
       <div class="col-sm-9 main-side-content" style="margin-top: 20px;">
-        <%= @reviews.each do |review| %>
-          <div class="col-sm-4 main-content-item1" style="background-image: url('<%= image_path(review.image.url) %>');
-            background-size: cover; background-position: center; background-repeat: no-repeat;">
-            <div class="" style="font-size: 2em; font-weight: bold;">
-              <%= link_to review.title, review, style: "color: white !important" %>
-            </div>
-          </div>
-        <% end %>
+        <div id="pagination" class="apple-pagination">
+          <%= paginate @reviews, remote: true %>
+        </div>
+        <div id="review-zone">
+          <%= render "review" %>
+        </div>
       </div>
     </div>
   </div>
