@@ -30,7 +30,8 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit :title, :store, :price, :content, :image, :user_id
+      params.require(:review).permit :title, :store, :price_from, :price_upto,
+        :content, :image, :user_id, :quality, :place, :price, :service, :currency
     end
 
   def find_review
