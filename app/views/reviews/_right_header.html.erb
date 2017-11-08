@@ -1,0 +1,105 @@
+<div class="col-sm-7">
+  <div class="" style="font-size: 2em; font-weight: bold">
+    <%= @cur_review.title %>
+  </div>
+
+  <div class="" style="font-size: 1.2em; font-weight: lighter; font-style: italic; color: darkblue">
+    <%= link_to @cur_review.user.name, @cur_review.user %>
+  </div>
+
+  <div class="" style="font-size: 1.5em">
+    <%= @cur_review.store %>
+  </div>
+
+  <div>
+    <span style="color: green;">
+      <%= @cur_review.price_from %>-<%= @cur_review.price_upto %> <%= @cur_review.currency %></span>
+  </div>
+
+  <div class="rating-field row" style="padding-top: 40px;">
+    <div class="col-sm-2 main-rating">
+            <span style="background: rgba(17,180,54,0.85); padding: 15px;
+              border-radius: 50%;color: white; font-size: 1.5em;"><%= @cur_review.average_point %></span>
+    </div>
+    <div class="rating">
+      <div class="col-sm-2">
+        <span style="color:#23ad6c; font-size: 1.2em;"><%= @cur_review.quality %></span>
+        <p>Quality</p>
+      </div>
+
+      <div class="col-sm-2">
+        <span style="color:#23ad6c; font-size: 1.2em;"><%= @cur_review.place %></span>
+        <p>Place</p>
+      </div>
+
+      <div class="col-sm-2">
+        <span style="color:#23ad6c; font-size: 1.2em;"><%= @cur_review.service %></span>
+        <p>Service</p>
+      </div>
+
+      <div class="col-sm-2">
+        <span style="color:#23ad6c; font-size: 1.2em;"><%= @cur_review.price %></span>
+        <p>Price</p>
+      </div>
+
+    </div>
+    <div class="col-sm-2" style="margin-left: -20px;border-left: 1px solid rgba(174,174,174,0.8)">
+      <span style="color:#ad7b36; font-size: 1.2em;"><%= @cur_review.comment.count %></span>
+      <p>Comment</p>
+    </div>
+  </div>
+
+  <div class="review-nav row" style="position: absolute;width: 98%;top: 126.5%;
+    background: rgba(227,253,237,0.5);box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)">
+    <div id="like_field">
+      <% if current_user.like.where(review_id: @cur_review.id).present? %>
+        <div class="col-sm-4 btn-review-nav btn-unlike" style="color: #00a100" id="un-try-it">
+          <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 1.8em"></i>
+          <span style="margin-left: 5px; font-size: 1.2em">
+          I'll try this!
+          </span>
+        </div>
+      <% else %>
+        <div class="col-sm-4 btn-review-nav btn-like" style="color: orange" id="try-it">
+          <i class="fa fa-question-circle" aria-hidden="true" style="font-size: 1.8em"></i>
+          <span style="margin-left: 5px; font-size: 1.2em">
+          Try it?
+        </span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-4 btn-review-nav active review-btn" style="color:#ffa541">
+      <i class="fa fa-bookmark" aria-hidden="true" style="font-size: 1.8em"></i>
+      <span style="margin-left: 5px; font-size: 1.2em;color:#e1922a">Review</span></div>
+    <div class="col-sm-4 btn-review-nav comment-btn" style="color:#287d8b">
+      <i class="fa fa-comments" aria-hidden="true" style="font-size: 1.8em"></i>
+      <span style="margin-left: 5px; font-size: 1.2em;">Comments</span></div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $('.btn-unlike').on('mouseenter', function() {
+    $('.btn-unlike i').removeClass('fa-check-circle').addClass('fa-times-circle');
+    $('.btn-unlike span').text('Not anymore!');
+    $(this).css("color","#FF332F").css('cursor', 'pointer');
+
+    $('.btn-unlike').on('mouseleave', function() {
+      $('.btn-unlike i').removeClass('fa-times-circle').addClass('fa-check-circle');
+      $('.btn-unlike span').text("I'll try this!");
+      $(this).css("color","#00A100");
+    });
+  });
+
+  $('.btn-like').on('mouseenter', function() {
+    $('.btn-like i').removeClass('fa-question-circle').addClass('fa-check-circle');
+    $('.btn-like span').text("I'll try it!");
+    $(this).css("color","#00A100").css('cursor', 'pointer');
+
+    $('.btn-like').on('mouseleave', function() {
+      $('.btn-like i').removeClass('fa-check-circle').addClass('fa-question-circle');
+      $('.btn-like span').text("Try it?");
+      $(this).css("color","#FFA500");
+    });
+  });
+</script>

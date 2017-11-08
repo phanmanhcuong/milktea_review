@@ -6,6 +6,7 @@ class User < ApplicationRecord
     :omniauthable, :omniauth_providers => [:facebook]
   mount_uploader :avatar, AvatarUploaderUploader
   has_many :review
+  has_many :like
 
   def self.new_with_session params, session
     super.tap do |user|

@@ -1,0 +1,29 @@
+<div class="comment-field hide" style="background: #ffffff;
+  padding: 10px;font-style: italic; font-size: 1em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)">
+  <div class="cur_comment">
+    <% @cur_review.comment.each do |comment| %>
+      <div class="comment-row" style="border: 1px solid rgba(168,168,168,0.65);margin: 5px 0;
+        padding: 5px 10px;">
+        <p class="comment-header"><%= link_to comment.user.name, comment.user %>
+          <span style="color: gray; font-size: .7em;"><%= comment.created_at %></span>
+          <% if comment.user == current_user %>
+            <i class="fa fa-pencil-square-o absolute edit-comment" aria-hidden="true"
+              style="right: 3%;font-size: 1.6em;"
+              data-id="<%= comment.id %>"></i>
+            <i class="fa fa-trash absolute delete-comment" aria-hidden="true"
+              style="right: 0; font-size: 1.45em;color: #c0262e" data-id="<%= comment.id %>"></i>
+          <% end %>
+        </p>
+        <p><%= comment.content %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="new-comment">
+    <input type="textarea" style="width: 90%;
+      height: 50px;" id="cmt-content-field">
+    <div class="btn btn-comment">Comment</div>
+    <div class="btn btn-edit hide">edit</div>
+  </div>
+</div>

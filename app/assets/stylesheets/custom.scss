@@ -51,7 +51,9 @@ body {
 
 .view-port {
   margin-top: 7vh;
-  height: 93vh;
+  min-height: 93vh;
+  position: relative;
+  padding-bottom: 250px;
 }
 
 .form-center {
@@ -173,10 +175,13 @@ body {
   background: url("https://media.foody.vn/res/g69/681411/s180x180/foody-tra-sua-gong-cha-hang-cot-815-636390259921289304.jpg");
 }
 
-.footer {
+footer {
   box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
   background: gray;
   height: 200px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .form-control-content {
@@ -309,5 +314,29 @@ body {
 
   &:active {
     background: #4180c2;
+  }
+}
+
+.btn-edit {
+  margin: -5px 10px 0;
+  background: #ff9d45;
+  padding: 10px 30px;
+  color: white;
+
+  &:hover {
+    background: #eb913f;
+    color: white;
+  }
+
+  &:active {
+    background: #c77833;
+  }
+}
+
+.comment-header {
+  position: relative;
+
+  .absolute {
+    position: absolute;
   }
 }
