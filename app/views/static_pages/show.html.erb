@@ -7,9 +7,25 @@
 </div>
 
 <div class="search-bar" style="padding: 15px;">
-  <div class="search-form" style="width: 500px;">
-    <%= search_form_for @q, url: root_path do |f| %>
-      <div class="input-group input-group-lg">
+  <div class="search-form" style="min-width: 500px;">
+    <%= search_form_for @q, url: root_path, remote: true do |f| %>
+      <%= sort_link @q, :title, {}, {remote: true, method: :get} do %>
+        <strong class="col-sm-1" style="margin: 15px 0;">Name</strong>
+      <% end %>
+
+      <%= sort_link@q, :price_from, {}, {remote: true, method: :get} do %>
+        <strong class="col-sm-1" style="margin: 15px 0;">Start Price</strong>
+      <% end %>
+
+      <%= sort_link @q, :price_to, {}, {remote: true, method: :get} do %>
+        <strong class="col-sm-1" style="margin: 15px 0;">Total Price</strong>
+      <% end %>
+
+      <%= sort_link @q, :average_point, {}, {remote: true, method: :get} do %>
+        <strong class="col-sm-1" style="margin: 15px 0;">Rating</strong>
+      <% end %>
+
+      <div class="input-group input-group-lg col-sm-6">
         <div class="form-group has-feedback has-clear input-group-lg">
           <%= f.text_field :title_cont, class: "form-control",
             placeholder: "Search", id: "searchinput" %>
@@ -22,7 +38,6 @@
       </div>
     <% end %>
   </div>
-
 </div>
 
 <div class="container-fluid">
@@ -35,8 +50,8 @@
         <div style="padding: 15px 10px;color: white; height: 60px; background: rgba(132,92,125,0.51); font-size: 1.2em">Others</div>
       </div>
 
-      <div class="col-sm-9 main-side-content" style="margin-top: 20px;">
-        <div id="pagination" class="apple-pagination">
+      <div class="col-sm-9 main-side-content" style="">
+        <div id="pagination" class="apple-pagination text-center" style="font-size: 2em;">
           <%= paginate @reviews, remote: true %>
         </div>
         <div id="review-zone">
@@ -55,6 +70,10 @@
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+  }
+
+  .current{
+    font-weight: bold;
   }
 </style>
 <script type="text/javascript" charset="utf-8">

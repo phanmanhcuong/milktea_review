@@ -125,6 +125,7 @@ $(document).on('click', '#try-it', function() {
     }
   }).success(function(d){
     $('#like_field').load(document.URL + ' #like_field');
+    $('.try-count').load(document.URL + ' .try-count-cont');
   });
 });
 
@@ -139,6 +140,7 @@ $(document).on('click', '#un-try-it', function() {
     url: url_delete
   }).success(function(d){
     $('#like_field').load(document.URL + ' #like_field');
+    $('.try-count').load(document.URL + ' .try-count-cont');
   });
 });
 </script>

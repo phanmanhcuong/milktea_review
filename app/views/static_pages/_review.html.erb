@@ -4,7 +4,15 @@
       background-size: cover; background-position: center; background-repeat: no-repeat;">
       <div class="" style="font-size: 2em; font-weight: bold;">
         <%= link_to review.title, review, style: "color: white !important;
-          background: rgba(136,136,136,0.62)" %>
+          background: rgba(136,136,136,0.62); padding: 0 10px;" %> <br>
+        <span style="font-size: .7em; background: rgba(53,154,94,0.62);
+        padding: 0 10px; color: white">
+          From: <%= review.price_from %></span> <br>
+        <span style="font-size: .7em; background: rgba(136,78,49,0.62);
+          padding: 0 10px; color: white">
+          To: <%= review.price_upto %></span> <br> <br>
+        <span style="background: gold; padding: 10px; border-radius: 50%;
+        "><%= review.average_point %></span>
       </div>
     </div>
   <% else %>
@@ -12,7 +20,15 @@
       background-size: cover; background-position: center; background-repeat: no-repeat;">
       <div class="" style="font-size: 2em; font-weight: bold;">
         <%= link_to review.title, review, style: "color: white !important;
-          background: rgba(136,136,136,0.62)" %>
+          background: rgba(136,136,136,0.62); padding: 0 10px;" %> <br>
+        <span style="font-size: .7em; background: rgba(53,154,94,0.62);
+          padding: 0 10px; color: white">
+          From: <%= review.price_from %></span> <br>
+        <span style="font-size: .7em; background: rgba(136,78,49,0.62);
+          padding: 0 10px; color: white">
+          To: <%= review.price_upto %></span> <br> <br>
+        <span style="background: gold; padding: 10px; border-radius: 50%;
+        "><%= review.average_point %></span>
       </div>
     </div>
   <% end %>

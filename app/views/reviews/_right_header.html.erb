@@ -1,4 +1,7 @@
 <div class="col-sm-7">
+  <div class="try-count" style="background: #ff9567; position: absolute; top: 5%; right: 5%;
+  padding: 15px 25px; font-size: 1.5em; border-radius: 50%">
+    <span class="try-count-cont"><%= Like.where(review_id: @cur_review.id).count %></span></div>
   <div class="" style="font-size: 2em; font-weight: bold">
     <%= @cur_review.title %>
   </div>
