@@ -1,0 +1,60 @@
+<body>
+	<%= form_for current_user do |f| %>
+		<div class="field">
+			<%= f.label :username, 'User name: ' %>
+			<%= current_user.username %>
+		</div>
+		<div class="field">
+			<%= f.label :email, 'Email: ' %> 
+			<%= current_user.email %>
+		</div>
+		<% if (current_user.first_name != nil) %>
+			<div class = "field">
+				<%= f.label :first_name, 'First Name: ' %>
+				<%= current_user.first_name %>
+			</div>
+		<% end %>	
+		<div class = "field">
+				<%= f.label :last_name, 'Last Name: ' %>
+				<% if (current_user.last_name != nil) %>
+					<%= current_user.last_name %>
+				<% else %>
+					<%= " ..." %>
+				<% end %>
+		</div>
+		<div class = "field">
+				<%= f.label :birthday, 'Birth day: ' %>
+				<% if (current_user.birthday != nil) %>
+					<%= current_user.birthday %>
+				<% else %>
+					<%= " ... " %>
+				<% end %>
+		</div>
+		<div class = "field">
+				<%= f.label :address, 'Address: ' %>
+				<% if (current_user.address != nil) %>
+					<%= current_user.address %>
+				<% else %>
+					<%= " ... " %>
+				<% end %>
+		</div>
+		<div class="field">
+			<%= "Avatar: " %>
+			<% if (current_user.avatar != nil) %>
+			<%= image_tag current_user.avatar.url(:thumb) unless current_user.avatar.blank? %>
+			<% end %>
+		</div>
+		<div class="field">
+				<%= link_to "Edit Profile", edit_user_path(current_user) %>
+		</div>
+	<% end %>
+</body>
+<style>
+	.field{
+		padding-left: 10px;
+		padding-top: 10px;
+	}
+	body {
+		background-color: lightblue;
+	}
+</style>

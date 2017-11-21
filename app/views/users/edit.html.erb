@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="form-center col-sm-4 col-sm-offset-4">
+    <h2 class="text-center">Edit </h2>
+      <%= form_for(current_user, html: { multipart: true }) do |f| %>
+        
+        <div class = "field">
+        	<%= f.label :avatar %>
+        	<%= f.file_field :avatar %>
+        </div>
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :birthday %>
+          <%= f.date_field :birthday, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address %><br />
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Save Change", class: "btn btn-primary btn-form" %>
+        </div>
+      <% end %>
+  </div>
+</div>
+
