@@ -69,7 +69,7 @@ body {
   padding: 15px 0;
   border: 0;
   box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
-  background: linear-gradient(to right, #4ca1af, #c6e0e5);
+  background: linear-gradient(to right, #4ca1af, #90c3d0);
   
   &:hover {
       background: linear-gradient(to right, #2980b9, #2c3e50);
@@ -128,11 +128,9 @@ body {
 
 @keyframes fadeBlur {
   from, to {
-    transition: .5s;
     filter: blur(5px);
   }
-  20%, 50%, 80% {
-    transition: .5s;
+  20%,80% {
     filter: blur(0);
   }
 }
@@ -146,7 +144,7 @@ body {
 }
 
 .search-bar {
-  height: 10vh;
+  height: 75px;
   background: white;
   box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
 }
@@ -179,4 +177,137 @@ body {
   box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
   background: gray;
   height: 200px;
+}
+
+.form-control-content {
+  min-height: 130px;
+}
+
+.btn-fb {
+  background: #4C69BA;
+
+  &:hover {
+    background: #33488b !important;
+  }
+}
+
+.avatar {
+  height: 240px;
+  background: url('https://jobseekers.vn/wp-content/themes/sb_theme/assets/images/default_avatar.png') center center no-repeat cover;
+}
+
+.h2style {
+  font-size: 2em;
+}
+
+.item-show-img {
+  height: 270px;
+  padding: 0 !important;
+}
+
+.img-title3 {
+  font-size: 2em;
+}
+
+.img-overlay {
+  padding: 5px 10px;
+  background: rgba(192, 192, 192, 0.53);
+}
+
+.panel {
+  border: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.panel-nav {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  padding: 10px;
+}
+
+.panel-body {
+  padding: 0;
+}
+
+.user-nav-btn {
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.62);
+  transition: .1s;
+}
+
+.user-nav-btn:hover {
+  color: rgb(255, 101, 47);
+}
+
+.info {
+  padding: 10px;
+}
+
+.nav-content {
+  transition: 1s;
+}
+
+.btn {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.btn-facebook {
+  width: 100%; padding: 10px 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  text-transform: uppercase; font-size: 1.2em; margin-top: -5px;
+}
+
+.review-header {
+  height: 300px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.form-new-review {
+  margin-top: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.form-control {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 0;
+  background: rgb(249, 249, 249);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(53, 197, 255, 0.74);
+  background: rgb(239, 239, 239);
+}
+
+.btn-review-nav {
+  padding: 7px 10px;
+
+  &:hover {
+    background: rgba(230, 225, 232, 0.75);
+  }
+
+  &:active {
+    background: rgba(214, 206, 217, 0.75);
+  }
+}
+
+.active {
+  background: rgba(179, 231, 149, 0.75);
+}
+
+.btn-comment {
+  margin: -5px 10px 0;
+  background: #4fafff;
+  color: white;
+
+  &:hover {
+    background: #4893dc;
+    color: white;
+  }
+
+  &:active {
+    background: #4180c2;
+  }
 }

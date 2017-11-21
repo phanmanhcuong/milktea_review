@@ -10,11 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010085546) do
+ActiveRecord::Schema.define(version: 20171101091835) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "user_id"
+    t.integer "parent"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title", default: "", null: false
+    t.string "store", default: "", null: false
+    t.integer "price_from", null: false
+    t.integer "price_upto", null: false
+    t.string "currency", default: "VND"
+    t.string "content", default: "", null: false
+    t.string "image"
+    t.integer "user_id"
+    t.float "quality"
+    t.float "place"
+    t.float "service"
+    t.float "price"
+    t.float "average_point"
+    t.time "open_time"
+    t.time "close_time"
+    t.integer "like_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -31,6 +69,8 @@ ActiveRecord::Schema.define(version: 20171010085546) do
     t.string "last_name"
     t.date "birthday"
     t.text "address"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
