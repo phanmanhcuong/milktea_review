@@ -76,6 +76,8 @@ $(document).on('click', '.delete-comment', function() {
     url: url,
   }).success(function(d){
     $('.cur_comment').load(document.URL + ' .cur_comment');
+    $('.cur_review.comment.count').load('.cur_review.comment.count');
+
   });
 });
 

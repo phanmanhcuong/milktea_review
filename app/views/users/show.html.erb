@@ -45,12 +45,12 @@
         </div>
         <div class="nav-content">
           <% @user.review.each do |review| %>
-            <div class="col-sm-4 item-show-img" style="background: url(<%= review.image.url %>);
+            <div class="col-sm-4 item-show-img" style="background: url('<%= image_path(review.image.url)%>');
               background-size: cover; background-position: center center;
               background-repeat: no-repeat; background-color: black">
               <div class="img-overlay">
-                <div class="img-index-item4" title="<%= review.title %>">
-                  <div class="img-title3"><%=h truncate(review.title, :length => 10) %></div>
+                <div class="" style="font-size: 2em; font-weight: bold;">
+                  <%= link_to review.title, review, style: "color: white !important; background: rgba(136,136,136,0.62)" %>
                 </div>
               </div>
             </div>
