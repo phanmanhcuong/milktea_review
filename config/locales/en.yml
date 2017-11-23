@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+  Search: "Search"
+  # create new review
+  Create_new_review: Create new Review
+  title: Title
+  store: Store
+  price_from: Price From
+  to: To
+  currency: Currency
+  Rating: Rating
+  quality: Quality
+  place: Place
+  service: Service
+  price: Price
+  content: Content
+  image: Image
+  Save_Change: Save Change

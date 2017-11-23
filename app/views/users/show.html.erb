@@ -34,10 +34,10 @@
           border-left: 4px solid rgba(255,69,21,0.71)">Info</div>
         </div>
         <div class="info nav-content" style="border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
-          <p>Email: <%= @user.email %></p>
+          <p><%= t :Email : @user.email %></p>
           <p>Address: <%= @user.address %></p>
           <p>Birthday: <%= @user.birthday %></p>
-          <p>Joined since: <%= @user.created_at.strftime('%d/%m/%Y') %></p>
+          <p>joined since: <%= @user.created_at.strftime('%d/%m/%Y') %></p>
         </div>
         <div class="panel-nav">
           <div class="text-center user-nav-btn" style="display:inline-block; padding: 0 15px;
