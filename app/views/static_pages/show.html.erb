@@ -29,12 +29,13 @@
       <div class="input-group input-group-lg col-sm-6">
         <div class="form-group has-feedback has-clear input-group-lg">
           <%= f.text_field :title_cont, class: "form-control",
-            placeholder: "Search", id: "searchinput" %>
+            placeholder: (t :Search), id: "searchinput" %>
           <span id="searchclear" class="form-control-clear glyphicon
             glyphicon-remove-circle form-control-feedback"></span>
         </div>
         <span class="input-group-btn">
-          <%= f.submit "Search", class: "btn btn-primary" %>
+           <%#<%= f.submit "Search", class: "btn btn-primary" %> 
+          <%= f.submit t :Search, class: "btn btn-primary" %> 
         </span>
       </div>
     <% end %>

@@ -34,10 +34,10 @@
           border-left: 4px solid rgba(255,69,21,0.71)">Info</div>
         </div>
         <div class="info nav-content" style="border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
-          <p>Email: <%= @user.email %></p>
+          <p><%= t :Email : @user.email %></p>
           <p>Address: <%= @user.address %></p>
           <p>Birthday: <%= @user.birthday %></p>
-          <p>Joined since: <%= @user.created_at.strftime('%d/%m/%Y') %></p>
+          <p>joined since: <%= @user.created_at.strftime('%d/%m/%Y') %></p>
         </div>
         <div class="panel-nav">
           <div class="text-center user-nav-btn" style="display:inline-block; padding: 0 15px;
@@ -45,13 +45,13 @@
         </div>
         <div class="nav-content">
           <% @user.review.each do |review| %>
-            <div class="col-sm-4 item-show-img" style="background: url(<%= review.image.url %>);
+            <div class="col-sm-4 item-show-img" style="background: url('<%= image_path(review.image.url)%>');
               background-size: cover; background-position: center center;
               background-repeat: no-repeat; background-color: black">
               <div class="img-overlay">
-                <div class="img-index-item4" title="<%= review.title %>">
-                  <div class="img-title3"><%=h truncate(review.title, :length => 10) %></div>
-                </div>
+                <div class="" style="font-size: 2em; font-weight: bold;">
+                  <%= link_to review.title, review, style: "color: white !important; background: rgba(136,136,136,0.62)" %>
+                  </div>
               </div>
             </div>
           <% end %>

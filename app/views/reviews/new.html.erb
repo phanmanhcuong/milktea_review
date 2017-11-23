@@ -4,14 +4,14 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
   </div>
   <div class="form-new-review col-sm-9">
-    <h2 class="text-center">Create new review </h2>
+    <h2 class="text-center"><%= t :Create_new_review %></h2>
     <%= form_for :review, url: reviews_path, method: :post do |f| %>
       <div class = "field">
         <%= f.hidden_field :user_id, value: current_user.id %>
       </div>
 
       <div class="field">
-        <%= f.label :title %>
+        <%= f.label t :title %>
         <%= f.text_field :title, class: "form-control" %>
       </div>
 
@@ -25,56 +25,56 @@
 
       <div class="row">
         <div class="field col-sm-6">
-          <%= f.label :store %>
+          <%= f.label t :store %>
           <%= f.text_field :store, autofocus: true, class: "form-control" %>
         </div>
 
         <div class="field col-sm-2">
-          <%= f.label :price_from %>
+          <%= f.label t :price_from %>
           <%= f.number_field :price_from, class: "form-control", min: 0 %>
         </div>
 
         <div class="field col-sm-2">
-          <%= f.label :to %>
+          <%= f.label t :to %>
           <%= f.number_field :price_upto, class: "form-control", min: 0 %>
         </div>
 
         <div class="field col-sm-2">
-          <%= f.label :currency %>
+          <%= f.label t :currency %>
           <%= f.text_field :currency, class: "form-control" %>
         </div>
       </div>
 
       <div style="padding: 10px 0; margin: 10px 0;">
-        <div class="field" style="font-weight: bold; font-size: 1.2em">Rating</div>
+        <div class="field" style="font-weight: bold; font-size: 1.2em"><%= t :Rating %></div>
 
         <div class="row" style="padding: 10px 0; background: rgba(210,247,213,0.64)">
           <div class="field col-sm-3">
-            <%= f.label :quality %>
+            <%= f.label t :quality %>
             <%= f.number_field :quality, class: "form-control", max: 10, min: 0 %>
           </div>
           <div class="field col-sm-3">
-            <%= f.label :place %>
+            <%= f.label t :place %>
             <%= f.number_field :place, class: "form-control", max: 10, min: 0  %>
           </div>
           <div class="field col-sm-3">
-            <%= f.label :service %>
+            <%= f.label t :service %>
             <%= f.number_field :service, class: "form-control", max: 10, min: 0  %>
           </div>
           <div class="field col-sm-3">
-            <%= f.label :price %>
+            <%= f.label t :price %>
             <%= f.number_field :price, class: "form-control", max: 10, min: 0  %>
           </div>
         </div>
       </div>
 
       <div class="field">
-        <%= f.label :content %><br />
+        <%= f.label t :content %><br />
         <%= f.text_area :content, class: "form-control form-control-content" %>
       </div>
 
       <div class = "field">
-        <%= f.label :image %>
+        <%= f.label t :image %>
         <%= f.file_field :image, onchange: "readURL(this)" %>
       </div>
       <div class="actions">
