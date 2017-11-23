@@ -5,6 +5,7 @@
       <div class="dropdown">
         <button class="dropbtn"><%= t "navbar.account" %></button>
         <div class="dropdown-content">
+          <li><%= link_to t(".go_to_admin"), admin_path(current_user) %></li>
           <li><%= link_to t(".My Profile"), user_path(current_user) %></li>
           <li><%= link_to t(".setting"), edit_user_registration_path %></li>
           <li class="divider"></li>

@@ -17,7 +17,8 @@
         <strong class="col-sm-1" style="margin: 15px 0;">Start Price</strong>
       <% end %>
 
-      <%= sort_link @q, :price_to, {}, {remote: true, method: :get} do %>
+      <%= sort_link @q, :price_upto, {}, {remote: true, method: :get,
+        default_order: :desc} do %>
         <strong class="col-sm-1" style="margin: 15px 0;">Total Price</strong>
       <% end %>
 
@@ -44,10 +45,11 @@
   <div class="main-content">
     <div class="row">
       <div class="col-sm-3 main-side-menu">
-        <div style="padding: 15px 10px;color: white; height: 60px; background: rgba(133,108,88,0.51); font-size: 1.2em">Latte Milktea</div>
-        <div style="padding: 15px 10px;color: white; height: 60px; background: rgba(162,123,112,0.51); font-size: 1.2em">Cheese Milktea</div>
-        <div style="padding: 15px 10px;color: white; height: 60px; background: rgba(145,104,105,0.48); font-size: 1.2em">Matcha Milktea</div>
-        <div style="padding: 15px 10px;color: white; height: 60px; background: rgba(132,92,125,0.51); font-size: 1.2em">Others</div>
+        <% Aji.all.each_with_index do |f, index| %>
+          <div class="aji" style="padding: 15px 10px;color: white;
+            height: 60px; background: rgba(<%= index%4*50 %>, <%= index%5*30 %>,88,0.51);
+            font-size: 1.2em" data-id="<%= index + 1 %>"><%= f.label %></div>
+        <% end %>
       </div>
 
       <div class="col-sm-9 main-side-content" style="">
@@ -111,4 +113,18 @@
   }
 
   loopSlider(0)
+
+  $(document).ready(function() {
+    $('.aji').on('click',function () {
+      $.ajax({
+        url: '/',
+        data: {
+          q: {
+            aji_id_eq: $(this).attr('data-id')
+          },
+          menu: true
+        }
+      });
+    })
+  });
 </script>

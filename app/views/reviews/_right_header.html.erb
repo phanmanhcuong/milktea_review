@@ -14,6 +14,10 @@
     <%= @cur_review.store %>
   </div>
 
+  <div class="" style="font-size: 1.5em">
+    <%= Aji.find_by_id(@cur_review.aji_id).label %>
+  </div>
+
   <div>
     <span style="color: green;">
       <%= @cur_review.price_from %>-<%= @cur_review.price_upto %> <%= @cur_review.currency %></span>

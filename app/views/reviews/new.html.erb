@@ -15,6 +15,14 @@
         <%= f.text_field :title, class: "form-control" %>
       </div>
 
+      <div class="field" style="margin-top: 10px;">
+        <%= f.label :flavour %>
+        <%= f.select :aji_id,
+          Aji.all.collect { |type| [ type.label, type.id ] },
+          { include_blank: 'Select Flavour' },
+          class:"ui dropdown js--select-event-type semantic-ui-form" %>
+      </div>
+
       <div class="row">
         <div class="field col-sm-6">
           <%= f.label :store %>

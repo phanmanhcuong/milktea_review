@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_review, only: [:show]
+  before_action :find_review, only: [:show, :destroy]
 
   def new
     @review = Review.new
@@ -28,10 +28,15 @@ class ReviewsController < ApplicationController
   def show
   end
 
+  def destroy
+    @cur_review.delete
+    redirect_to admin_path
+  end
+
   private
     def review_params
       params.require(:review).permit :title, :store, :price_from, :price_upto,
-        :content, :image, :user_id, :quality, :place, :price, :service, :currency
+        :content, :image, :user_id, :quality, :place, :price, :service, :currency, :aji_id
     end
 
   def find_review

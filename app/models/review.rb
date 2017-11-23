@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   belongs_to :user, optional: true
   has_many :comment
   has_many :like
+  has_one :aji
 
   before_save :average_point
 

@@ -5,7 +5,7 @@
         <div class="panel-body avatar-body">
           <% if @user.avatar.url == nil %>
             <img src="https://jobseekers.vn/wp-content/themes/sb_theme/assets/images/default_avatar.png"
-              alt="" id="img_prev">
+              alt="" id="img_prev" style="width:100%;">
           <% else %>
             <img src="<%= @user.avatar %>" alt="" id="img_prev"  style="width:100%;">
           <% end %>
