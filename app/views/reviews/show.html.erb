@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 10vh">
   <div class="review-header">
-    <div class="row">
+    <div class="row" style="margin: 0 !important">
       <% if (@cur_review.image.url != nil) %>
         <div class="col-sm-5"
           style="background-image: url('<%= image_path(@cur_review.image.url) %>'); height: 300px;
@@ -36,6 +36,7 @@ $('.review-btn').on('click', function() {
   $('.comment-field').addClass('hide');
 });
 
+
 $('.comment-btn').on('click', function() {
   $(this).addClass("active");
   $('.review-btn').removeClass('active');
@@ -43,104 +44,106 @@ $('.comment-btn').on('click', function() {
   $('.comment-field').removeClass('hide');
 });
 
-$(document).on('click', '.btn-comment', function() {
-  var cmt_content = $('#cmt-content-field').val();
-  $('#cmt-content-field').val('');
-  $.ajax({
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('X-CSRF-Token',
-        $('meta[name="csrf-token"]').attr('content'));
-    },
-    type:'POST',
-    url: '/comments',
-    data: {
-      comment: {
-        content: cmt_content,
-        review_id: <%= @cur_review.id %>,
-        user_id: <%= current_user.id %>
-      }
-    }
-  }).success(function(d){
-    $('.cur_comment').load(document.URL + ' .cur_comment');
-  });
-});
-
-$(document).on('click', '.delete-comment', function() {
-  var url = '/comments/' + $(this).attr('data-id');
-  $.ajax({
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('X-CSRF-Token',
-        $('meta[name="csrf-token"]').attr('content'));
-    },
-    type:'DELETE',
-    url: url,
-  }).success(function(d){
-    $('.cur_comment').load(document.URL + ' .cur_comment');
-  });
-});
-
-$(document).on('click', '.edit-comment', function() {
-  var comment_id = $(this).attr('data-id');
-  var cur_content = $(this).parent().next().text();
-  $(this).parent().parent().hide();
-  $('#cmt-content-field').val(cur_content);
-  $('.btn-comment').hide();
-  $('.btn-edit').removeClass('hide').on('click', function() {
-    var new_content = $('#cmt-content-field').val();
-    var edit_url = /comments/+comment_id;
+<% if current_user  %>
+  $(document).on('click', '.btn-comment', function() {
+    var cmt_content = $('#cmt-content-field').val();
+    $('#cmt-content-field').val('');
     $.ajax({
       beforeSend: function(xhr){
         xhr.setRequestHeader('X-CSRF-Token',
           $('meta[name="csrf-token"]').attr('content'));
       },
-      type:'PUT',
-      url: edit_url,
+      type:'POST',
+      url: '/comments',
       data: {
         comment: {
-          content: new_content,
+          content: cmt_content,
+          review_id: <%= @cur_review.id %>,
+          user_id: <%= current_user.id %>
         }
       }
     }).success(function(d){
       $('.cur_comment').load(document.URL + ' .cur_comment');
-      $('.btn-edit').addClass('hide');
-      $('.btn-comment').show();
-      $('#cmt-content-field').val('');
     });
   });
-});
 
-$(document).on('click', '#try-it', function() {
-  $.ajax({
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('X-CSRF-Token',
-        $('meta[name="csrf-token"]').attr('content'));
-    },
-    type:'POST',
-    url: '/likes',
-    data: {
-      like: {
-        user_id: <%= current_user.id %>,
-        review_id: <%= @cur_review.id %>,
+  $(document).on('click', '.delete-comment', function() {
+    var url = '/comments/' + $(this).attr('data-id');
+    $.ajax({
+      beforeSend: function(xhr){
+        xhr.setRequestHeader('X-CSRF-Token',
+          $('meta[name="csrf-token"]').attr('content'));
+      },
+      type:'DELETE',
+      url: url,
+    }).success(function(d){
+      $('.cur_comment').load(document.URL + ' .cur_comment');
+    });
+  });
+
+  $(document).on('click', '.edit-comment', function() {
+    var comment_id = $(this).attr('data-id');
+    var cur_content = $(this).parent().next().text();
+    $(this).parent().parent().hide();
+    $('#cmt-content-field').val(cur_content);
+    $('.btn-comment').hide();
+    $('.btn-edit').removeClass('hide').on('click', function() {
+      var new_content = $('#cmt-content-field').val();
+      var edit_url = /comments/+comment_id;
+      $.ajax({
+        beforeSend: function(xhr){
+          xhr.setRequestHeader('X-CSRF-Token',
+            $('meta[name="csrf-token"]').attr('content'));
+        },
+        type:'PUT',
+        url: edit_url,
+        data: {
+          comment: {
+            content: new_content,
+          }
+        }
+      }).success(function(d){
+        $('.cur_comment').load(document.URL + ' .cur_comment');
+        $('.btn-edit').addClass('hide');
+        $('.btn-comment').show();
+        $('#cmt-content-field').val('');
+      });
+    });
+  });
+
+  $(document).on('click', '#try-it', function() {
+    $.ajax({
+      beforeSend: function(xhr){
+        xhr.setRequestHeader('X-CSRF-Token',
+          $('meta[name="csrf-token"]').attr('content'));
+      },
+      type:'POST',
+      url: '/likes',
+      data: {
+        like: {
+          user_id: <%= current_user.id %>,
+          review_id: <%= @cur_review.id %>,
+        }
       }
-    }
-  }).success(function(d){
-    $('#like_field').load(document.URL + ' #like_field');
-    $('.try-count').load(document.URL + ' .try-count-cont');
+    }).success(function(d){
+      $('#like_field').load(document.URL + ' #like_field');
+      $('.try-count').load(document.URL + ' .try-count-cont');
+    });
   });
-});
 
-$(document).on('click', '#un-try-it', function() {
-  var url_delete = '/likes/' + <%= @cur_review.id %>;
-  $.ajax({
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('X-CSRF-Token',
-        $('meta[name="csrf-token"]').attr('content'));
-    },
-    type:'DELETE',
-    url: url_delete
-  }).success(function(d){
-    $('#like_field').load(document.URL + ' #like_field');
-    $('.try-count').load(document.URL + ' .try-count-cont');
+  $(document).on('click', '#un-try-it', function() {
+    var url_delete = '/likes/' + <%= @cur_review.id %>;
+    $.ajax({
+      beforeSend: function(xhr){
+        xhr.setRequestHeader('X-CSRF-Token',
+          $('meta[name="csrf-token"]').attr('content'));
+      },
+      type:'DELETE',
+      url: url_delete
+    }).success(function(d){
+      $('#like_field').load(document.URL + ' #like_field');
+      $('.try-count').load(document.URL + ' .try-count-cont');
+    });
   });
-});
+<% end %>
 </script>

@@ -1,32 +1,88 @@
 <div class="container" style="margin-top: 70px;">
   <div class="row" style="font-size: 1.5em;">
-    <div class="col-sm-1" style="height: 100%;">
+    <div class="col-sm-2" style="height: 100%;">
       <p><%= current_user.name %></p>
-      <p> Review </p>
+      <p id="admin-statistic-btn"> <%= t "admin.statistic" %> </p>
+      <p id="admin-review-btn"> <%= t "admin.review" %> </p>
+      <p id="admin-user-btn"> <%= t "admin.user" %> </p>
     </div>
 
-    <div class="col-sm-11 container" style="background: rgba(15,185,255,0.32);">
-      <div class="statistic">
-        <p>Review: <%= Review.all.count %></p>
-        <p>User: <%= User.all.count %>(
-          <span><%= User.where(provider: "facebook").count %> from FB)</span>
-        </p>
+    <div class="col-sm-10 container" style="background: rgba(200,241,207,0.82);">
+      <div class="admin-statistic" style="padding: 10px;">
+        <p style="font-size: 2em"><%= t "admin.statistic" %></p>
+        <div class="col-sm-3" style="background: white; padding: 20px;
+          margin: 10px;font-size: 2em">
+          <span style="font-weight: bold; color: #0a163b"><%= Review.all.count %></span>
+          <p style="font-size: .7em"><%= t "admin.review" %></p>
+        </div>
+
+        <div class="col-sm-3" style="background: white; padding: 20px;
+          margin: 10px;font-size: 2em">
+          <span style="font-weight: bold; color: #0a163b"><%= User.all.count %></span><span style="font-size: .5em!important"> (<%= User.where(provider: "facebook").count %> from FB)</span>
+          <p style="font-size: .7em"><%= t "admin.user" %></p>
+        </div>
       </div>
 
-      <div class="review">
+      <div class="admin-review hide">
+        <span style="font-size: 2em"><%= t "admin.review" %></span>
         <% Review.all.each do |review| %>
-          <div>
+          <div style="padding: 10px; border-bottom: 1px solid rgba(128,128,128,0.53)">
             <%= link_to review.title, review %>
-            by <span><%= review.user.name %></span>
-            at <span style="font-size: .6em"><%= review.created_at %></span>
+            <%= t "admin.by" %> <span><%= review.user.name %></span>
+            <span style="font-size: .6em"><%= review.created_at.strftime('%d/%m/%y') %></span>
             <div class="btn btn-primary"
-              style="padding: 1px 5px; background: red; color: white; font-size: .7em">
-              <%= link_to "X", review, method: :delete %>
+              style="padding: 3px 10px; background: #ff5317; color: white; font-size: .7em">
+              <%= link_to "DELETE", review, method: :delete, style: "color: white" %>
             </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="admin-user hide">
+        <span style="font-size: 2em"><%= t "admin.user" %></span>
+        <% User.all.each do |user| %>
+          <div style="padding: 10px; border-bottom: 1px solid rgba(128,128,128,0.53)">
+            <%= link_to user.name, user %>
+            <% unless user.isAdmin %>
+              <div class="btn btn-primary"
+                   style="padding: 3px 10px; background: #ff5317; color: white; font-size: .7em">
+                <%= link_to "DELETE", user, method: :delete, style: "color: white" %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $('#admin-review-btn').on('click', function() {
+      $('.admin-review').removeClass('hide');
+      $('.admin-statistic').addClass('hide');
+      $('.admin-user').addClass('hide');
+    })
 
+    $('#admin-statistic-btn').on('click', function() {
+      $('.admin-review').addClass('hide');
+      $('.admin-statistic').removeClass('hide');
+      $('.admin-user').addClass('hide');
+    })
+
+    $('#admin-user-btn').on('click', function() {
+      $('.admin-review').addClass('hide');
+      $('.admin-statistic').addClass('hide');
+      $('.admin-user').removeClass('hide');
+    })
+  })
+</script>
+<style>
+  #admin-review-btn, #admin-statistic-btn, #admin-user-btn {
+    background: rgba(30, 254, 210, 0.75);
+    padding: 5px;
+  }
+
+  .unchoosen {
+    background: rgba(58, 132, 254, 0.75) !important;
+  }
+</style>

@@ -10,32 +10,32 @@
   <div class="search-form" style="min-width: 500px;">
     <%= search_form_for @q, url: root_path, remote: true do |f| %>
       <%= sort_link @q, :title, {}, {remote: true, method: :get} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;">Name</strong>
+        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.name" %></strong>
       <% end %>
 
       <%= sort_link@q, :price_from, {}, {remote: true, method: :get} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;">Start Price</strong>
+        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.start_price" %></strong>
       <% end %>
 
       <%= sort_link @q, :price_upto, {}, {remote: true, method: :get,
         default_order: :desc} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;">Total Price</strong>
+        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.total_price" %></strong>
       <% end %>
 
       <%= sort_link @q, :average_point, {}, {remote: true, method: :get} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;">Rating</strong>
+        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.rating" %></strong>
       <% end %>
 
       <div class="input-group input-group-lg col-sm-6">
         <div class="form-group has-feedback has-clear input-group-lg">
           <%= f.text_field :title_cont, class: "form-control",
-            placeholder: (t :Search), id: "searchinput" %>
+            placeholder: t("home.search"), id: "searchinput" %>
           <span id="searchclear" class="form-control-clear glyphicon
             glyphicon-remove-circle form-control-feedback"></span>
         </div>
         <span class="input-group-btn">
            <%#<%= f.submit "Search", class: "btn btn-primary" %> 
-          <%= f.submit t :Search, class: "btn btn-primary" %> 
+          <%= f.submit t("home.search"), class: "btn btn-primary" %>
         </span>
       </div>
     <% end %>

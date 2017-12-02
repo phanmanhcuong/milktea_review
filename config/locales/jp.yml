@@ -1,0 +1,71 @@
+jp:
+  hello: "Hello world"
+  Search: "Search"
+  # create new review
+  Create_new_review: Create new Review
+  title: Title
+  store: Store
+  price_from: Price From
+  to: To
+  currency: Currency
+  Rating: Rating
+  quality: Quality
+  place: Place
+  service: Service
+  price: Price
+  content: Content
+  image: Image
+  Save_Change: Save Change
+  review:
+    report_confirm: 確認
+    report_complete: 成功
+    title: タイトル
+    flavour: フレーバー
+    store: ストア
+    price_from: 価格から
+    to: "-"
+    currency: 通貨
+    place: 場所
+    service: サービス
+    price: 価格
+    content: コンテンツ
+    image: 画像
+    save: 保存
+    report_this_review: このレビューを報告する
+    comment: コメント
+    comment_edit: 編集
+    quality: 品質
+    i_will_try: "飲んでみたい"
+    try_it: "飲んでみて？"
+    review: レビュー
+  nav:
+    noti_message: "は管理者によって削除されました"
+    noti_read: "読んだ"
+    noti_unread: "まだ読まない"
+    language: 言語
+    account: アカウント
+    write_review: "レビュー"
+    go_to_admin: "管理者"
+    my_profile: "プロフィール"
+    setting: "設定"
+    login: "ログイン"
+    signup: "サインアップ"
+    logout: "ログアウト"
+  admin:
+    statistic: "統計"
+    review: "レビュー"
+    user: "ユーザー"
+    by: "の"
+    at: "時間："
+  home:
+    name: 名前
+    start_price: 開始価格
+    total_price: 合計金額
+    rating: レーティング
+    search: "検索"
+  login:
+    email: 	イメール
+    pass: パスワード
+    remember: 覚えておいてください
+    login: ログイン
+    fb: フェースブックでログイン

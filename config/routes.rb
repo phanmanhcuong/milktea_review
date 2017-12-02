@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :likes
   resources :admins
+  resources :reports, only: :create
+  resources :notis
+
+  scope "(:locale)", locale: /en|jp|vn/ do
+    root to: "static_pages#show"
+  end
 end

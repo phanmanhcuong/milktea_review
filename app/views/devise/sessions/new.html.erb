@@ -3,27 +3,27 @@
     <h2 class="text-center">Login</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.label :email %>
+        <%= f.label t("login.email") %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %> <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+        <%= f.label t("login.pass") %> <%= link_to "Forgot your password?", new_password_path(resource_name) %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.label t("login.remember")%>
         </div>
       <% end -%>
 
       <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary btn-form" %>
+        <%= f.submit t("login.login"), class: "btn btn-primary btn-form" %>
       </div>
     <% end %>
-    <%= link_to "Log in with Facebook", user_facebook_omniauth_authorize_path,
+    <%= link_to t("login.fb"), user_facebook_omniauth_authorize_path,
       class: "btn btn-primary btn-block btn-form btn-fb" %>
   </div>
 </div>

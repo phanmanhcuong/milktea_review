@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_review, only: [:show, :destroy]
 
   def new
@@ -29,6 +28,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    review = @cur_review.title
+    user = @cur_review.user_id
+    noti = Noti.new
+    noti.update_attributes user_id: user, review_title: review
     @cur_review.delete
     redirect_to admin_path
   end

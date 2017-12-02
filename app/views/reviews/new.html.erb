@@ -11,12 +11,12 @@
       </div>
 
       <div class="field">
-        <%= f.label t :title %>
+        <%= f.label t("review.title") %>
         <%= f.text_field :title, class: "form-control" %>
       </div>
 
       <div class="field" style="margin-top: 10px;">
-        <%= f.label :flavour %>
+        <%= f.label t("review.flavour") %>
         <%= f.select :aji_id,
           Aji.all.collect { |type| [ type.label, type.id ] },
           { include_blank: 'Select Flavour' },
@@ -25,22 +25,22 @@
 
       <div class="row">
         <div class="field col-sm-6">
-          <%= f.label t :store %>
+          <%= f.label t("review.store") %>
           <%= f.text_field :store, autofocus: true, class: "form-control" %>
         </div>
 
         <div class="field col-sm-2">
-          <%= f.label t :price_from %>
+          <%= f.label t("review.price_from") %>
           <%= f.number_field :price_from, class: "form-control", min: 0 %>
         </div>
 
         <div class="field col-sm-2">
-          <%= f.label t :to %>
+          <%= f.label t("review.to") %>
           <%= f.number_field :price_upto, class: "form-control", min: 0 %>
         </div>
 
         <div class="field col-sm-2">
-          <%= f.label t :currency %>
+          <%= f.label t("review.currency") %>
           <%= f.text_field :currency, class: "form-control" %>
         </div>
       </div>
@@ -50,40 +50,38 @@
 
         <div class="row" style="padding: 10px 0; background: rgba(210,247,213,0.64)">
           <div class="field col-sm-3">
-            <%= f.label t :quality %>
+            <%= f.label t("review.quality") %>
             <%= f.number_field :quality, class: "form-control", max: 10, min: 0 %>
           </div>
           <div class="field col-sm-3">
-            <%= f.label t :place %>
+            <%= f.label t("review.place") %>
             <%= f.number_field :place, class: "form-control", max: 10, min: 0  %>
           </div>
           <div class="field col-sm-3">
-            <%= f.label t :service %>
+            <%= f.label t("review.service") %>
             <%= f.number_field :service, class: "form-control", max: 10, min: 0  %>
           </div>
           <div class="field col-sm-3">
-            <%= f.label t :price %>
+            <%= f.label t("review.price") %>
             <%= f.number_field :price, class: "form-control", max: 10, min: 0  %>
           </div>
         </div>
       </div>
 
       <div class="field">
-        <%= f.label t :content %><br />
+        <%= f.label t("review.content") %><br />
         <%= f.text_area :content, class: "form-control form-control-content" %>
       </div>
 
       <div class = "field">
-        <%= f.label t :image %>
+        <%= f.label t("review.image") %>
         <%= f.file_field :image, onchange: "readURL(this)" %>
       </div>
       <div class="actions">
-        <%= f.submit "Save Change", class: "btn btn-primary btn-form" %>
+        <%= f.submit t("review.save"), class: "btn btn-primary btn-form" %>
       </div>
     <% end %>
   </div>
 </div>
 <script type="text/javascript" charset="utf-8">
-  $('.timepicker').timepicker();
-  $('.timepicker2').timepicker();
 </script>

@@ -34,7 +34,7 @@
           border-left: 4px solid rgba(255,69,21,0.71)">Info</div>
         </div>
         <div class="info nav-content" style="border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
-          <p><%= t :Email : @user.email %></p>
+          <p>Email: <%= @user.email %></p>
           <p>Address: <%= @user.address %></p>
           <p>Birthday: <%= @user.birthday %></p>
           <p>joined since: <%= @user.created_at.strftime('%d/%m/%Y') %></p>
@@ -50,7 +50,8 @@
               background-repeat: no-repeat; background-color: black">
               <div class="img-overlay">
                 <div class="" style="font-size: 2em; font-weight: bold;">
-                  <%= link_to review.title, review, style: "color: white !important; background: rgba(136,136,136,0.62)" %>
+                  <%= link_to review.title, review,
+                    style: "color: white !important; background: rgba(136,136,136,0.62)" %>
                   </div>
               </div>
             </div>
