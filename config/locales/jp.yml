@@ -35,11 +35,15 @@ jp:
     comment: コメント
     comment_edit: 編集
     quality: 品質
+    not_anymore: "好きではない"
     i_will_try: "飲んでみたい"
     try_it: "飲んでみて？"
     review: レビュー
+    select: "フレーバを選択"
+    create: "新しいレビューを作成する"
+    fav: "好きなリスト"
   nav:
-    noti_message: "は管理者によって削除されました"
+    noti_message: "は管理者を削除されました。"
     noti_read: "読んだ"
     noti_unread: "まだ読まない"
     language: 言語
@@ -47,6 +51,7 @@ jp:
     write_review: "レビュー"
     go_to_admin: "管理者"
     my_profile: "プロフィール"
+    my_favorite: "好きなリスト"
     setting: "設定"
     login: "ログイン"
     signup: "サインアップ"
@@ -57,15 +62,32 @@ jp:
     user: "ユーザー"
     by: "の"
     at: "時間："
+    delete: "削除"
+    admin: "管理者"
   home:
     name: 名前
     start_price: 開始価格
     total_price: 合計金額
     rating: レーティング
     search: "検索"
+    review:
+      from: "ミーン:"
+      to: "マックス:"
+    aji:
+      basic: 基本
+      fruit: 果物
+      strawberry: ストロベリー
+      caramel: キャラメル
+      latte: ラテ
+      vani: ヴァニ
   login:
     email: 	イメール
     pass: パスワード
     remember: 覚えておいてください
     login: ログイン
     fb: フェースブックでログイン
+  devise:
+    sessions:
+      user:
+        signed_in: "ログインに成功しました"
+        signed_out: "ログアウトに成功しました"

@@ -1,7 +1,8 @@
 <div class="container" style="margin-top: 70px;">
   <div class="row" style="font-size: 1.5em;">
     <div class="col-sm-2" style="height: 100%;">
-      <p><%= current_user.name %></p>
+      <p><i class="fa fa-user" aria-hidden="true"></i>
+        <%= current_user.name %></p>
       <p id="admin-statistic-btn"> <%= t "admin.statistic" %> </p>
       <p id="admin-review-btn"> <%= t "admin.review" %> </p>
       <p id="admin-user-btn"> <%= t "admin.user" %> </p>
@@ -43,10 +44,15 @@
         <% User.all.each do |user| %>
           <div style="padding: 10px; border-bottom: 1px solid rgba(128,128,128,0.53)">
             <%= link_to user.name, user %>
-            <% unless user.isAdmin %>
+            <% if user.isAdmin %>
+              <div class="btn btn-primary"
+                style="padding: 3px 10px; background: #00c365; color: white; font-size: .7em; color: white">
+                <%= t("admin.admin") %>
+              </div>
+            <% else %>
               <div class="btn btn-primary"
                    style="padding: 3px 10px; background: #ff5317; color: white; font-size: .7em">
-                <%= link_to "DELETE", user, method: :delete, style: "color: white" %>
+                <%= link_to t("admin.delete"), user, method: :delete, style: "color: white" %>
               </div>
             <% end %>
           </div>

@@ -4,7 +4,7 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
   </div>
   <div class="form-new-review col-sm-9">
-    <h2 class="text-center"><%= t :Create_new_review %></h2>
+    <h2 class="text-center"><%= t "review.create" %></h2>
     <%= form_for :review, url: reviews_path, method: :post do |f| %>
       <div class = "field">
         <%= f.hidden_field :user_id, value: current_user.id %>
@@ -18,8 +18,8 @@
       <div class="field" style="margin-top: 10px;">
         <%= f.label t("review.flavour") %>
         <%= f.select :aji_id,
-          Aji.all.collect { |type| [ type.label, type.id ] },
-          { include_blank: 'Select Flavour' },
+          Aji.all.collect { |type| [ "#{t("home.aji.#{type.label.downcase}")}", type.id ] },
+          { include_blank: "#{t("review.select")}" },
           class:"ui dropdown js--select-event-type semantic-ui-form" %>
       </div>
 
@@ -46,7 +46,7 @@
       </div>
 
       <div style="padding: 10px 0; margin: 10px 0;">
-        <div class="field" style="font-weight: bold; font-size: 1.2em"><%= t :Rating %></div>
+        <div class="field" style="font-weight: bold; font-size: 1.2em"><%= t "home.rating" %></div>
 
         <div class="row" style="padding: 10px 0; background: rgba(210,247,213,0.64)">
           <div class="field col-sm-3">

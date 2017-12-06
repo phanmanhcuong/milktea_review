@@ -141,7 +141,7 @@
   <% if current_user %>
     $('.btn-unlike').on('mouseenter', function() {
       $('.btn-unlike i').removeClass('fa-check-circle').addClass('fa-times-circle');
-      $('.btn-unlike span').text('Not anymore!');
+      $('.btn-unlike span').text('<%= t "review.not_anymore" %>');
       $(this).css("color","#FF332F").css('cursor', 'pointer');
 
       $('.btn-unlike').on('mouseleave', function() {

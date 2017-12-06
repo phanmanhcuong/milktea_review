@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :destroy]
 
+  def index
+    @like = current_user.like
+  end
+
   def new
     @review = Review.new
   end

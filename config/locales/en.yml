@@ -66,9 +66,13 @@ en:
     comment: Comment
     comment_edit: Edit
     quality: Quality
+    not_anymore: "Not anymore"
     i_will_try: "I'll try it"
     try_it: "Try it?"
     review: Review
+    select: "Select Flavour"
+    create: "Create New Review"
+    fav: "My Favorite"
   nav:
     noti_message: "had been deleted by admin"
     noti_read: "Read"
@@ -78,6 +82,7 @@ en:
     write_review: "Write Review"
     go_to_admin: "Go to Admin"
     my_profile: "My profile"
+    my_favorite: "My Favorite List"
     setting: "Setting"
     login: "Login"
     signup: "Sign Up"
@@ -88,12 +93,24 @@ en:
     user: User
     by: by
     at: at
+    delete: "DELETE"
+    admin: "ADMIN"
   home:
     name: Name
     start_price: Start Price
     total_price: Total Price
     rating: Rating
     search: Search
+    aji:
+      basic: Basic
+      fruit: Fruit
+      strawberry: Strawberry
+      caramel: Caramel
+      latte: Latte
+      vani: Vani
+    review:
+      from: "From:"
+      to: "To:"
   login:
     email: Email
     pass: Password

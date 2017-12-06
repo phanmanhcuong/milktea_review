@@ -7,26 +7,27 @@
 </div>
 
 <div class="search-bar" style="padding: 15px;">
-  <div class="search-form" style="min-width: 500px;">
+  <div class="search-form row" style="min-width: 500px;">
     <%= search_form_for @q, url: root_path, remote: true do |f| %>
-      <%= sort_link @q, :title, {}, {remote: true, method: :get} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.name" %></strong>
-      <% end %>
+      <div class="col-sm-4">
+        <%= sort_link @q, :title, {}, {remote: true, method: :get} do %>
+          <strong class="menu-item" style="margin: 15px 0; display: inline-block"><%= t "home.name" %></strong>
+        <% end %>
 
-      <%= sort_link@q, :price_from, {}, {remote: true, method: :get} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.start_price" %></strong>
-      <% end %>
+        <%= sort_link@q, :price_from, {}, {remote: true, method: :get} do %>
+          <strong class="menu-item" style="margin: 15px 0; display: inline-block"><%= t "home.start_price" %></strong>
+        <% end %>
 
-      <%= sort_link @q, :price_upto, {}, {remote: true, method: :get,
-        default_order: :desc} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.total_price" %></strong>
-      <% end %>
+        <%= sort_link @q, :price_upto, {}, {remote: true, method: :get,
+          default_order: :desc} do %>
+          <strong class="menu-item" style="margin: 15px 0; display: inline-block"><%= t "home.total_price" %></strong>
+        <% end %>
 
-      <%= sort_link @q, :average_point, {}, {remote: true, method: :get} do %>
-        <strong class="col-sm-1" style="margin: 15px 0;"><%= t "home.rating" %></strong>
-      <% end %>
-
-      <div class="input-group input-group-lg col-sm-6">
+        <%= sort_link @q, :average_point, {}, {remote: true, method: :get} do %>
+          <strong class="menu-item" style="margin: 15px 0; display: inline-block"><%= t "home.rating" %></strong>
+        <% end %>
+      </div>
+      <div class="input-group input-group-lg col-sm-7">
         <div class="form-group has-feedback has-clear input-group-lg">
           <%= f.text_field :title_cont, class: "form-control",
             placeholder: t("home.search"), id: "searchinput" %>
@@ -34,22 +35,24 @@
             glyphicon-remove-circle form-control-feedback"></span>
         </div>
         <span class="input-group-btn">
-           <%#<%= f.submit "Search", class: "btn btn-primary" %> 
           <%= f.submit t("home.search"), class: "btn btn-primary" %>
         </span>
       </div>
+
+
     <% end %>
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="background: #ececec">
   <div class="main-content">
     <div class="row">
       <div class="col-sm-3 main-side-menu">
         <% Aji.all.each_with_index do |f, index| %>
           <div class="aji" style="padding: 15px 10px;color: white;
             height: 60px; background: rgba(<%= index%4*50 %>, <%= index%5*30 %>,88,0.51);
-            font-size: 1.2em" data-id="<%= index + 1 %>"><%= f.label %></div>
+            font-size: 1.2em; box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);"
+            data-id="<%= index + 1 %>"><%= t("home.aji.#{f.label.downcase}") %></div>
         <% end %>
       </div>
 
@@ -67,7 +70,7 @@
 
 <style>
   .slider-home {
-    height: 93vh;
+    height: 63vh;
     transition: 1s;
     animation: fadeBlur 7.2s infinite;
     background-size: cover !important;
@@ -75,10 +78,22 @@
     background-repeat: no-repeat !important;
   }
 
-  .current{
-    font-weight: bold;
+  .menu-item {
+    padding: 0 20px;
+    text-transform: uppercase;
+    color: gray;
+  }
+
+  .menu-item:hover {
+    color: black;
+  }
+
+  .aji:hover {
+    transition: .3s;
+    background: gray!important;
   }
 </style>
+
 <script type="text/javascript" charset="utf-8">
   var slide1 = 'url('+$('.slider-home').attr('data-slide1')+')';
   var slide2 = 'url('+$('.slider-home').attr('data-slide2')+')';

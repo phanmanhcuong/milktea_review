@@ -50,8 +50,8 @@ body {
 }
 
 .view-port {
-  margin-top: 7vh;
-  min-height: 93vh;
+  margin-top: 5vh;
+  min-height: 95vh;
   position: relative;
   padding-bottom: 250px;
 }
@@ -151,12 +151,63 @@ body {
   box-shadow: 3px -1px 11px rgba(34, 34, 34, 0.68);
 }
 
+.item-content {
+  display: none;
+
+  .review-title {
+    font-size: 1.2em;
+    color: white !important;
+    padding: 0 10px;
+
+    &:hover {
+      transition: .35s;
+      font-style: italic;
+    }
+  }
+
+  .review-price-from, .review-price-to {
+    padding: 5px 10px;
+    font-size: .7em;
+    background: rgba(44, 210, 128, 0.7);
+    font-weight: bold;
+    color: white;
+  }
+
+  .review-price-to {
+    text-align: right;
+    background: rgba(203, 76, 44, 0.71);
+  }
+}
+
 .main-content-item1 {
+  padding: 0 !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   height: 280px;
   background: url("https://media.foody.vn/res/g69/688272/s180x180/foody-royaltea-tran-dang-ninh-304-636421318206025687.jpg");
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  border-radius: 10px;
+
+  .review-star {
+    font-size: 3em;
+    margin: 10px;
+    background: gold;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2%;
+  }
+
+  &:hover {
+    .item-content {
+      display: block;
+      background: rgba(71, 71, 71, 0.41);
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
 }
 
 .main-content-item3 {
@@ -342,10 +393,47 @@ footer {
 }
 
 #pagination {
-  background: #adadad;
-  color: white;
+  color: #f7fcff;
 
   a {
-    color: white;
+    color: #f7fcff;
+  }
+}
+
+.apple-pagination {
+  background: transparent;
+}
+
+.pagination {
+  min-width: 400px;
+  padding: 10px 20px;
+  background: #43bb82;
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+
+  .page {
+    a {
+      box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+      padding: 0 12px;
+      border-radius: 55%;
+      margin: 0 5px;
+      background: #1c7e94;
+    }
+  }
+
+  .current {
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    padding: 0 8px 0 12px;
+    border-radius: 55%;
+    margin: 0 5px;
+    background: #32a8b5;
+  }
+
+  .next, .last, .first, .prev {
+    a {
+      border-radius: 5px;
+      box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+      padding: 0 5px;
+      background: #1c7e94;
+    }
   }
 }

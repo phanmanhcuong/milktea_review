@@ -17,8 +17,11 @@
           <%= t "nav.account" %>
           <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><%= link_to t("nav.go_to_admin"), admin_path(current_user) %></li>
+          <% if current_user.isAdmin %>
+            <li><%= link_to t("nav.go_to_admin"), admin_path(current_user) %></li>
+          <% end %>
           <li><%= link_to t("nav.my_profile"), user_path(current_user) %></li>
+          <li><%= link_to t("nav.my_favorite"), reviews_path %></li>
           <li><%= link_to t("nav.setting"), edit_user_registration_path %></li>
           <li class="divider"></li>
           <li>
